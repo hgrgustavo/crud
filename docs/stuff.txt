@@ -1,0 +1,79 @@
+# função para preencher os Entry
+def selecionacidade(self, event):
+
+        seleciona_item = self.tree.selection()
+        if seleciona_item:
+
+            # Obtém o item selecionado
+            item = seleciona_item[0]
+            values = self.tree.item(item, 'values')
+
+
+            # Preenche os campos de entrada com os dados do item selecionado
+            self.idcidade.delete(0, END)
+            self.idcidade.insert(INSERT, values[0])
+            self.cidade.delete(0, END)
+            self.cidade.insert(INSERT, values[1])
+            self.uf.delete(0, END)
+            self.uf.insert(INSERT, values[2])
+
+
+
+
+# o evento do TreeView quando clicar na linha
+self.tree.bind("<<TreeviewSelect>>", self.selecionacidade)
+
+import tkinter as tk
+from tkinter import ttk
+import sqlite3
+
+
+
+
+# Função para conectar ao banco de dados e buscar os dados
+def fetch_data():
+    conn = sqlite3.connect('banco.db')  # Conectando ao banco de dados
+    cursor = conn.cursor()
+
+    # Executando uma consulta SQL para pegar todos os dados da tabela
+    cursor.execute("SELECT * FROM usuarios")
+    rows = cursor.fetchall()  # Buscando todos os resultados
+    conn.close()
+
+    return rows
+
+
+
+
+# Função para popular a Treeview com os dados do banco
+def populate_treeview(treeview, data):
+    for row in data:
+        treeview.insert("", "end", values=row)
+
+
+
+
+# Configurando a interface principal
+root = tk.Tk()
+root.title("Exibindo Dados do Banco de Dados")
+
+
+
+# Configurando a Treeview
+columns = ("ID", "Nome", "Telefone", "Email")  # Definindo as colunas
+treeview = ttk.Treeview(root, columns=columns, show='headings')
+for col in columns:
+    treeview.heading(col, text=col)
+
+treeview.pack(fill=tk.BOTH, expand=True)
+
+
+
+# Pegando os dados do banco e populando a Treeview
+data = fetch_data()
+populate_treeview(treeview, data)
+
+
+
+# Iniciando a aplicação
+root.mainloop()
