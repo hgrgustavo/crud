@@ -7,6 +7,7 @@ class Database:
         self.cursor = self.connection.cursor()
         
         self.createtable_user()
+        self.createtable_city()
 
     def createtable_user(self):
         self.cursor.execute("""
@@ -16,6 +17,30 @@ class Database:
                 phone     TEXT,
                 email     TEXT,
                 username  TEXT, 
-                password  INTEGER              
+                password  TEXT              
            );
+        """)
+
+    def createtable_city(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS city (
+                id      INTEGER PRIMARY KEY,
+                city    TEXT,
+                state   TEXT,
+                country TEXT
+            );
+        """)
+
+    def createtable_client(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS client (
+                id        INTEGER PRIMARY KEY,
+                name      TEXT,
+                cpf       TEXT,
+                birthdate TEXT,
+                gender    TEXT,
+                city_id   TEXT,
+                
+                FOREIGN KEY(city_id) REFERENCES city(id)
+            );
         """)

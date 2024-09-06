@@ -4,7 +4,7 @@ from tkinter.ttk import Treeview
 from tkinter.constants import END
 
 from user.usercrud import UserCrud
-from user.usertreeview import *
+from user.usertreeview import fetch, populate_treeview
 
 
 class UserApp(CTk):
@@ -18,7 +18,7 @@ class UserApp(CTk):
         self.title_entry.place(relx=0.495, rely=0, anchor="n")
 
 
-        # id, combobox, search_button
+        # id, combobox, search_button (why i created a frame)
         self.id_frame = CTkFrame(master=self, width=500, height=40, fg_color="transparent")
         self.id_entry = CTkEntry(self, placeholder_text="Identificador")
 
@@ -47,8 +47,10 @@ class UserApp(CTk):
 
 
         # buttons (insert, update, delete, search_id)
+        """
         self.search_button = CTkButton(self.id_frame, text="Buscar ID", width=80, command=self.select)
         self.search_button.place(relx=0.74, rely=0.5, anchor="center")
+        """
 
         self.button_frame = CTkFrame(self, width=300, height=50, fg_color="transparent")
         self.delete_button = CTkButton(self.button_frame, text="Excluir", width=80, command=self.delete)
@@ -114,13 +116,21 @@ class UserApp(CTk):
         self.username_entry.delete(0, END)
         self.password_entry.delete(0, END) 
     
-    
+    """
     def select(self):
         user = UserCrud(self.id_entry.get(), self.name_entry.get(), self.phone_entry.get(), self.email_entry.get(), self.username_entry.get(), self.password_entry.get())
 
         user.select(self.id_entry.get())
 
-    # treeview-item & window-entry synchronization
+        self.id_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.phone_entry.delete(0, END)
+        self.email_entry.delete(0, END)
+        self.username_entry.delete(0, END)
+        self.password_entry.delete(0, END)
+    """
+
+    # treeview-row & window-entry synchronization
     def synchronize(self, event=None):
         for item in self.treeview.selection():
             values: [] = self.treeview.item(item, "values")

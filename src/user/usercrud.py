@@ -76,5 +76,5 @@ class UserCrud:
         except:
             return messagebox.showwarning("", "Erro ao buscar usuário")
 
-#   def search_treeview(self) -> []:
+
 

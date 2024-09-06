@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="user ui basics finished">
-      <change afterPath="$PROJECT_DIR$/src/user/usertreeview.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/city/cityapp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/city/citycrud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/city/citytreeview.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/clientapp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/clientcrud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93829e29-e6ff-4d63-87b0-631071370126.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93829e29-e6ff-4d63-87b0-631071370126/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sqlite3.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sqlite3.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/userapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/userapp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/usercrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/usercrud.py" afterDir="false" />
     </list>
@@ -50,26 +59,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.UserApp.executor": "Run",
-    "Python.database.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.userapp.executor": "Run",
-    "Python.usercrud.executor": "Run",
-    "Python.usertreeview.executor": "Run",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/gus/Documentos/mycrud",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.UserApp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cityapp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.clientapp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.userapp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.usercrud.executor&quot;: &quot;Run&quot;,
+    &quot;Python.usertreeview.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gus/Documentos/mycrud&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -100,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725481124669</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="user ui basics finished">
+      <option name="closed" value="true" />
+      <created>1725589162033</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725589162033</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
