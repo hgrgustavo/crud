@@ -17,6 +17,6 @@ class UserCrud:
         database = Database()
 
         try:
-            database.cursor.execute("insert into client (name, cpf, birthdate, gender")
+            database.cursor.execute("INSERT INTO client (name, cpf, birthdate, gender")
 
 

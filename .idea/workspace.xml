@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="user ui basics finished">
-      <change afterPath="$PROJECT_DIR$/src/city/cityapp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/city/citycrud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/city/citytreeview.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/clientapp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client/clientcrud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93829e29-e6ff-4d63-87b0-631071370126.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93829e29-e6ff-4d63-87b0-631071370126/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sqlite3.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sqlite3.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/userapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/userapp.py" afterDir="false" />
+    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="adding stuff">
+      <change beforePath="$PROJECT_DIR$/src/city/citycrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/city/citycrud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/clientcrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/clientcrud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/usercrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/usercrud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725589162033</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="adding stuff">
+      <option name="closed" value="true" />
+      <created>1725656703276</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725656703276</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -127,6 +124,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="user ui basics finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="user ui basics finished" />
+    <MESSAGE value="adding stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding stuff" />
   </component>
 </project>

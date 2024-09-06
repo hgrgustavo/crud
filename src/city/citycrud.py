@@ -13,7 +13,7 @@ class CityCrud:
         database = Database()
 
         try:
-            database.cursor.execute("insert into city (city, state, country) values ('" + self.city + "', '" + self.state + "', '" + self.country + "')")
+            database.cursor.execute("INSERT INTO city (city, state, country) VALUES ('" + self.city + "', '" + self.state + "', '" + self.country + "')")
             database.connection.commit()
             database.connection.close()
 
@@ -27,7 +27,7 @@ class CityCrud:
         database = Database()
 
         try:
-            database.cursor.execute("delete from city where id = '" + self.id + "'")
+            database.cursor.execute("DELETE FROM city WHERE id = '" + self.id + "'")
             database.connection.commit()
             database.connection.close()
 
@@ -41,7 +41,7 @@ class CityCrud:
         database = Database()
 
         try:
-            database.cursor.execute("update city set city = '" + self.city + "', state = '" + self.state + "', country = '" + self.country + "' where id = '" + self.id + "'")
+            database.cursor.execute("UPDATE CITY SET city = '" + self.city + "', state = '" + self.state + "', country = '" + self.country + "' WHERE id = '" + self.id + "'")
             database.connection.commit()
             database.connection.close()
 
@@ -54,7 +54,7 @@ class CityCrud:
         database = Database()
 
         try:
-            database.cursor.execute("select * from city where id = '" + city_id + "'")
+            database.cursor.execute("SELECT * FROM city WHERE id = '" + city_id + "'")
             database.connection.commit()
             database.connection.close()
 
