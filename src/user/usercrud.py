@@ -16,7 +16,7 @@ class UserCrud:
         database = Database()
 
         try:
-            database.cursor.execute("INSERT INTO user (name, phone, email, username, password) VALUES ('" + self.name + "', '" + self.phone + "', '" + self.email + "', '" + self.username + "', '" + self.password + "')")
+            database.cursor.execute("INSERT INTO user (id, name, phone, email, username, password) VALUES ('" + self.id + "', '" + self.name + "', '" + self.phone + "', '" + self.email + "', '" + self.username + "', '" + self.password + "')")
             database.connection.commit()
             database.connection.close()
             return messagebox.showinfo("", "Usuário cadastrado com sucesso!")
@@ -43,7 +43,7 @@ class UserCrud:
         database = Database()
 
         try:
-            database.cursor.execute("UPDATE USER set name = '" + self.name + "', phone = '" + self. phone + "', email = '" + self.email + "', username = '" + self.username + "', password = '" + self.password + "' WHERE id = '" + self.id + "'")
+            database.cursor.execute("UPDATE user SET id = '" + self.id + "', name = '" + self.name + "', phone = '" + self. phone + "', email = '" + self.email + "', username = '" + self.username + "', password = '" + self.password + "' WHERE id = '" + self.id + "'")
             database.connection.commit()
             database.connection.close()
 

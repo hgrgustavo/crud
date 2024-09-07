@@ -13,7 +13,7 @@ class CityCrud:
         database = Database()
 
         try:
-            database.cursor.execute("INSERT INTO city (city, state, country) VALUES ('" + self.city + "', '" + self.state + "', '" + self.country + "')")
+            database.cursor.execute("INSERT INTO city (id, city, state, country) VALUES ('" + self.id + "', '"+ self.city + "', '" + self.state + "', '" + self.country + "')")
             database.connection.commit()
             database.connection.close()
 

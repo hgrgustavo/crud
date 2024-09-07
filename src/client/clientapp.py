@@ -1,6 +1,11 @@
-from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu
+from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu, CTkComboBox, CTkButton
 
 from tkinter.ttk import Treeview
+from tkinter.constants import END
+
+from clientcombobox import get_cityname
+
+from clientcrud import ClientCrud
 
 
 class ClientApp(CTk):
@@ -37,30 +42,95 @@ class ClientApp(CTk):
         self.gender_menu.set("Gênero")
         self.gender_menu.place(relx=0.5, rely=0.34, anchor="n")
 
-        # city_id
-        self.cityid_frame = CTkFrame(self, border_color="orange", border_width=1,width=80, height=30, fg_color="orange3", corner_radius=6)
-        self.cityid_label = CTkLabel(self.cityid_frame, text="ID Cidade")
-        self.cityid_frame.place(relx=0.4999, rely=0.41, anchor="n")
-        self.cityid_label.place(relx=0.5, rely=0.08, anchor="n")
+        # city combobox
+        self.city_combobox = CTkComboBox(self)
+        self.city_combobox.set("Cidade")
 
+        get_cityname(self)
+
+        self.city_combobox.place(relx=0.5, rely=0.40, anchor="n")
+
+        # buttons (insert, update, delete, search_id)
+        """
+        self.search_button = CTkButton(self.id_frame, text="Buscar ID", width=80, command=self.select)
+        self.search_button.place(relx=0.74, rely=0.5, anchor="center")
+        """
+        self.button_frame = CTkFrame(self, width=300, height=50, fg_color="transparent")
+        self.delete_button = CTkButton(self.button_frame, text="Excluir", width=80, command=self.delete)
+        self.update_button = CTkButton(self.button_frame, text="Atualizar", width=80, command=self.update)
+        self.insert_button = CTkButton(self.button_frame, text="Inserir", width=80, command=self.insert)
+
+        self.button_frame.place(relx=0.52, rely=0.46, anchor="n")
+        self.delete_button.place(relx=0, rely=0.25)
+        self.update_button.place(relx=0.3, rely=0.25)
+        self.insert_button.place(relx=0.6, rely=0.25)
 
         # treeview
-        self.treeview = Treeview(self, columns=("id", "name", "cpf", "gender", "cityid"), show="headings", height=100)
+        self.treeview = Treeview(self, columns=("id", "name", "cpf", "gender", "city"), show="headings", height=100)
 
         self.treeview.heading("id", text="ID")
         self.treeview.heading("name", text="NOME")
         self.treeview.heading("cpf", text="CPF / CNPJ")
         self.treeview.heading("gender", text="GÊNERO")
-        self.treeview.heading("cityid", text="ID CIDADE")
+        self.treeview.heading("city", text="CIDADE")
 
-        self.treeview.place(relx=0.5, rely=0.55, anchor="n")
-
-        # crud methods
+        self.treeview.place(relx=0.5, rely=0.6, anchor="n")
 
 
+    # crud methods
+    def insert(self):
+        client = ClientCrud(self.id_entry.get(), self.name_entry.get(), self.cpf_entry.get(),
+                            self.birthdate_entry.get(), self.gender_menu.get(), self.city_combobox.get())
 
+        client.insert()
 
+        self.id_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.cpf_entry.delete(0, END)
+        self.birthdate_entry.delete(0, END)
+        self.gender_menu.set("Gênero")
+        self.city_combobox.set("Cidade")
 
+    def update(self):
+        client = ClientCrud(self.id_entry.get(), self.name_entry.get(), self.cpf_entry.get(),
+                            self.birthdate_entry.get(), self.gender_menu.get(), self.city_combobox.get())
+
+        client.update()
+
+        self.id_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.cpf_entry.delete(0, END)
+        self.birthdate_entry.delete(0, END)
+        self.gender_menu.set("Gênero")
+        self.city_combobox.set("Cidade")
+
+    def delete(self):
+        client = ClientCrud(self.id_entry.get(), self.name_entry.get(), self.cpf_entry.get(),
+                            self.birthdate_entry.get(), self.gender_menu.get(), self.city_combobox.get())
+
+        client.delete()
+
+        self.id_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.cpf_entry.delete(0, END)
+        self.birthdate_entry.delete(0, END)
+        self.gender_menu.set("Gênero")
+        self.city_combobox.set("Cidade")
+
+    """
+    def select(self):
+        client = ClientCrud(self.id_entry.get(), self.name_entry.get(), self.cpf_entry.get(),
+                            self.birthdate_entry.get(), self.gender_menu.get(), self.city_combobox.get())
+
+        client.select(self.id_entry.get())
+
+        self.id_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.cpf_entry.delete(0, END)
+        self.birthdate_entry.delete(0, END)
+        self.gender_menu.set("Gênero")
+        self.city_combobox.set("Cidade")
+    """
 
 
 window = ClientApp()

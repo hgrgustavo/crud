@@ -8,6 +8,7 @@ class Database:
         
         self.createtable_user()
         self.createtable_city()
+        self.createtable_client()
 
     def createtable_user(self):
         self.cursor.execute("""
@@ -39,8 +40,6 @@ class Database:
                 cpf       TEXT,
                 birthdate TEXT,
                 gender    TEXT,
-                city_id   TEXT,
-                
-                FOREIGN KEY(city_id) REFERENCES city(id)
+                city   TEXT
             );
         """)
