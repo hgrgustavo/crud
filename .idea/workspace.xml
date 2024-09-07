@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="changing crud sql statements strings to upper case">
-      <change afterPath="$PROJECT_DIR$/src/client/clientcombobox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93ae5dbe-bd1d-4f61-9ade-2a5ab629a055.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/93ae5dbe-bd1d-4f61-9ade-2a5ab629a055.xml" afterDir="false" />
+    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="finished client stuff (ui, crud, statements)">
+      <change afterPath="$PROJECT_DIR$/src/client/clientreeview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/city/citycrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/city/citycrud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/clientapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/clientapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/clientcrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/clientcrud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/clientcombobox.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/clientcombobox.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sqlite3.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sqlite3.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/usercrud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/usercrud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725657841759</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finished client stuff (ui, crud, statements)">
+      <option name="closed" value="true" />
+      <created>1725741158006</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725741158006</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -140,6 +144,7 @@
     <MESSAGE value="user ui basics finished" />
     <MESSAGE value="adding stuff" />
     <MESSAGE value="changing crud sql statements strings to upper case" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing crud sql statements strings to upper case" />
+    <MESSAGE value="finished client stuff (ui, crud, statements)" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished client stuff (ui, crud, statements)" />
   </component>
 </project>

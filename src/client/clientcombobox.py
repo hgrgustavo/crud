@@ -12,4 +12,13 @@ def get_cityname(self):
     database.connection.close()
 
 
+def insert_new_city(self):
+    database = Database()
+
+    if self.city_combobox != get_cityname:
+        return database.cursor.execute("INSERT INTO city (city) VALUES ('" + self.city_combobox + "')")
+
+    database.connection.close()
+
+
 

@@ -4,14 +4,15 @@ from tkinter.ttk import Treeview
 from tkinter.constants import END
 
 from clientcombobox import get_cityname
-
 from clientcrud import ClientCrud
+from clientreeview import fetch, populate_treeview
+
 
 
 class ClientApp(CTk):
     def __init__(self):
         super().__init__()
-        self.geometry("1000x530")
+        self.geometry("1200x550")
         self.title("Cadastro  |  Cliente")
 
         # title
@@ -66,13 +67,18 @@ class ClientApp(CTk):
         self.insert_button.place(relx=0.6, rely=0.25)
 
         # treeview
-        self.treeview = Treeview(self, columns=("id", "name", "cpf", "gender", "city"), show="headings", height=100)
+        self.treeview = Treeview(self, columns=("id", "name", "cpf", "birthdate", "gender", "city"), show="headings")
 
         self.treeview.heading("id", text="ID")
         self.treeview.heading("name", text="NOME")
         self.treeview.heading("cpf", text="CPF / CNPJ")
+        self.treeview.heading("birthdate", text="DATA DE NASCIMENTO")
         self.treeview.heading("gender", text="GÊNERO")
         self.treeview.heading("city", text="CIDADE")
+
+        fetch()
+        populate_treeview(self.treeview)
+        self.treeview.bind("<<TreeviewSelect>>", self.synchronize)
 
         self.treeview.place(relx=0.5, rely=0.6, anchor="n")
 
@@ -131,6 +137,27 @@ class ClientApp(CTk):
         self.gender_menu.set("Gênero")
         self.city_combobox.set("Cidade")
     """
+
+    # treeview-row & window-entry synchronization
+    def synchronize(self, event=None):
+        for item in self.treeview.selection():
+            values: [] = self.treeview.item(item, "values")
+
+            self.id_entry.delete(0, END)
+            self.id_entry.insert(0, values[0])
+
+            self.name_entry.delete(0, END)
+            self.name_entry.insert(0, values[1])
+
+            self.cpf_entry.delete(0,END)
+            self.cpf_entry.insert(0, values[2])
+
+            self.birthdate_entry.delete(0, END)
+            self.birthdate_entry.insert(0, values[3])
+
+            self.gender_menu.set(values[4])
+
+            self.city_combobox.set(values[5])
 
 
 window = ClientApp()
