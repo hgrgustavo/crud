@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="finished client stuff (ui, crud, statements)">
-      <change beforePath="$PROJECT_DIR$/.idea/mycrud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mycrud.iml" afterDir="false" />
+    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="finished menu">
+      <change afterPath="$PROJECT_DIR$/src/login/loginapp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/clientapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/clientapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/userapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/userapp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuapp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/tasks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/teste.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +56,7 @@
     "Python.cityapp.executor": "Run",
     "Python.clientapp.executor": "Run",
     "Python.database.executor": "Run",
+    "Python.loginapp.executor": "Run",
     "Python.main.executor": "Run",
     "Python.menuapp.executor": "Run",
     "Python.teste.executor": "Run",
@@ -135,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725741158006</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finished menu">
+      <option name="closed" value="true" />
+      <created>1726083714569</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726083714569</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -146,6 +156,7 @@
     <MESSAGE value="adding stuff" />
     <MESSAGE value="changing crud sql statements strings to upper case" />
     <MESSAGE value="finished client stuff (ui, crud, statements)" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished client stuff (ui, crud, statements)" />
+    <MESSAGE value="finished menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished menu" />
   </component>
 </project>
