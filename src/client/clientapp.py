@@ -3,9 +3,9 @@ from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu, CTkC
 from tkinter.ttk import Treeview
 from tkinter.constants import END
 
-from clientcombobox import get_cityname
-from clientcrud import ClientCrud
-from clientreeview import fetch, populate_treeview
+from client.clientcombobox import get_cityname
+from client.clientcrud import ClientCrud
+from client.clientreeview import fetch, populate_treeview
 
 
 
@@ -160,5 +160,4 @@ class ClientApp(CTk):
             self.city_combobox.set(values[5])
 
 
-window = ClientApp()
-window.mainloop()
+

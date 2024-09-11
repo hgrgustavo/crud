@@ -126,5 +126,3 @@ class CityApp(CTk):
             self.country_entry.insert(0, values[3])
 
 
-window = CityApp()
-window.mainloop()

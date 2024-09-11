@@ -1,0 +1,40 @@
+APP
+
+- Verificar entrega de todas as mensagens
+- Criar tela de menus
+- Login (validação / auth)
+- Não deixar excluir uma cidade se estiver sendo usada no cliente
+- Criar impressão dos dados de cadastro em arquivo PDF
+- Permitir visualizar o PDF, através de um botão EM CADA cadastro
+
+
+pdf src
+"""
+import tkinter as tk
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+def exportar_para_pdf():
+    pdf_file = "conteudo_exportado.pdf"
+    with PdfPages(pdf_file) as pdf:
+        # Renderizar e salvar o gráfico
+        fig, ax = plt.subplots()
+        ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
+        ax.set_xlabel('X')
+        ax.set_ylabel('Y')
+        ax.set_title('Gráfico de Exemplo')
+        pdf.savefig()  # Salvar o gráfico no PDF
+        # Fechar o gráfico após salvar
+        plt.close()
+    print("PDF exportado com sucesso.")
+root = tk.Tk()
+root.title("Exportar para PDF")
+botao_exportar = tk.Button(root, text="Exportar Gráfico para PDF", command=exportar_para_pdf)
+botao_exportar.pack()
+root.mainloop()
+"""
+
+menu stuff links
+https://github.com/TomSchimansky/CustomTkinter/blob/master/examples/image_example.py
+https://github.com/TomSchimansky/CustomTkinter/blob/master/documentation_images/image_example_dark_Windows.png
+https://github.com/python/cpython/blob/main/Lib/tkinter/__init__.py
+https://docs.python.org/3/library/os.path.html#os.path.join
