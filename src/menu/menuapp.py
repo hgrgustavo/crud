@@ -85,5 +85,3 @@ class MenuApp(CTk):
         set_appearance_mode(new_appearance_mode)
 
 
-window = MenuApp()
-window.mainloop()
