@@ -22,7 +22,7 @@ class MenuApp(CTk):
         # load images with light and dark mode image
         image_path = path.join(path.dirname(path.realpath(__file__)), ".")
 
-        self.logo_image = CTkImage(Image.open(path.join(image_path, "icon.ico")), size=(27, 27))
+        self.logo_image = CTkImage(Image.open(path.join(image_path, "logo_icon.png")), size=(27, 27))
         self.user_icon = CTkImage(light_image=Image.open(path.join(image_path, "user_icon.png")),
                                   dark_image=Image.open(path.join(image_path, "user_icon.png")), size=(20, 20))
         self.client_icon = CTkImage(light_image=Image.open(path.join(image_path, "client_icon.png")),
@@ -79,7 +79,6 @@ class MenuApp(CTk):
 
     def city_button_event(self):
         self.toplevel_window = CityApp()
-
 
     def change_appearance_mode_event(self, new_appearance_mode):
         set_appearance_mode(new_appearance_mode)
