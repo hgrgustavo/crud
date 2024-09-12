@@ -1,6 +1,5 @@
 APP
 
-- Login (validação / auth)
 - Não deixar excluir uma cidade se estiver sendo usada no cliente
 - Criar impressão dos dados de cadastro em arquivo PDF
 - Permitir visualizar o PDF, através de um botão EM CADA cadastro

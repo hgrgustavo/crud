@@ -12,7 +12,7 @@ class ClientApp(CTk):
     def __init__(self):
         super().__init__()
         self.geometry("1200x550")
-        self.title("Cadastro  |  Cliente")
+        self.title("CRUD    |     Clientes")
 
         # title
         self.title_entry = CTkLabel(self, text="")

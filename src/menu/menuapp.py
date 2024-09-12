@@ -12,7 +12,7 @@ class MenuApp(CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("")
+        self.title("CRUD    |     Menu")
         self.geometry("700x450")
 
         # set grid layout 1x2

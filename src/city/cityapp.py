@@ -10,7 +10,7 @@ from city.citytreeview import fetch, populate_treeview
 class CityApp(CTk):
     def __init__(self):
         super().__init__()
-        self.title("Cadastro    |    Cidade")
+        self.title("CRUD    |     Cidades")
         self.geometry("800x446")
 
         # title
