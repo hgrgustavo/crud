@@ -1,4 +1,3 @@
-import os.path
 from os import path
 from PIL import Image
 from customtkinter import CTk, CTkImage, CTkLabel, CTkFont, CTkFrame
@@ -15,7 +14,7 @@ class LoginApp(CTk):
 
 
         # left-side
-        self.path = path.join(os.path.dirname(os.path.realpath(__file__)), "../menu")
+        self.path = path.join(path.dirname(path.realpath(__file__)), "../menu")
         self.logo_icon = CTkImage(Image.open(path.join(self.path, "icon.ico")), size=(50, 50))
 
         self.left_frame = CTkFrame(self, width=340, height=400, fg_color="transparent")
@@ -27,6 +26,7 @@ class LoginApp(CTk):
         self.phrase_label = CTkLabel(self.left_frame, text="            CRUD ajuda você a armazenar e\n     gerir informações de forma \ndinâmica.", font=CTkFont(size=14, weight="bold"))
         self.phrase_label.place(relx=0.1, rely=0.44)
 
+        # right-side
 
 
 
@@ -34,5 +34,4 @@ class LoginApp(CTk):
 
 
 
-window = LoginApp()
-window.mainloop()
+

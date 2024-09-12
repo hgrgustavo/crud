@@ -1,5 +1,5 @@
 
-from customtkinter import CTkLabel, CTkEntry, CTkButton, CTkFrame, CTk
+from customtkinter import CTkLabel, CTkEntry, CTkButton, CTkFrame, CTkToplevel, CTk
 
 from tkinter.ttk import Treeview
 from tkinter.constants import END
@@ -153,8 +153,6 @@ class UserApp(CTk):
 
             self.password_entry.delete(0, END)
             self.password_entry.insert(0, values[5])
-
-
 
 
 

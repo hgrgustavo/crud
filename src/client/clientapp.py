@@ -1,4 +1,4 @@
-from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu, CTkComboBox, CTkButton
+from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu, CTkComboBox, CTkButton, CTkToplevel
 
 from tkinter.ttk import Treeview
 from tkinter.constants import END
@@ -6,7 +6,6 @@ from tkinter.constants import END
 from client.clientcombobox import get_cityname
 from client.clientcrud import ClientCrud
 from client.clientreeview import fetch, populate_treeview
-
 
 
 class ClientApp(CTk):
@@ -82,7 +81,6 @@ class ClientApp(CTk):
 
         self.treeview.place(relx=0.5, rely=0.6, anchor="n")
 
-
     # crud methods
     def insert(self):
         client = ClientCrud(self.id_entry.get(), self.name_entry.get(), self.cpf_entry.get(),
@@ -149,7 +147,7 @@ class ClientApp(CTk):
             self.name_entry.delete(0, END)
             self.name_entry.insert(0, values[1])
 
-            self.cpf_entry.delete(0,END)
+            self.cpf_entry.delete(0, END)
             self.cpf_entry.insert(0, values[2])
 
             self.birthdate_entry.delete(0, END)
@@ -158,6 +156,3 @@ class ClientApp(CTk):
             self.gender_menu.set(values[4])
 
             self.city_combobox.set(values[5])
-
-
-
