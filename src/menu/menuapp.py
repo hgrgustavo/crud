@@ -71,14 +71,20 @@ class MenuApp(CTk):
 
         self.toplevel_window = None
 
+
     def user_button_event(self):
         self.toplevel_window = UserApp()
+
 
     def client_button_event(self):
         self.toplevel_window = ClientApp()
 
+
+
     def city_button_event(self):
         self.toplevel_window = CityApp()
+
+
 
     def change_appearance_mode_event(self, new_appearance_mode):
         set_appearance_mode(new_appearance_mode)

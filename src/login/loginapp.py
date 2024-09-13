@@ -1,5 +1,6 @@
 from os import path
 from PIL import Image
+
 from customtkinter import CTk, CTkImage, CTkLabel, CTkFont, CTkFrame, CTkEntry, CTkButton
 from tkinter import messagebox
 
@@ -65,7 +66,6 @@ class LoginApp(CTk):
         messagebox.showinfo("", "Você esta autenticado! Bem vindo :)")
 
         self.destroy()
-
         MenuApp()
 
 

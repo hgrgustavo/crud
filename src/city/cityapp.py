@@ -1,4 +1,13 @@
-from customtkinter import CTk, CTkLabel, CTkEntry, CTkFrame, CTkButton, CTkToplevel
+import platform
+
+from customtkinter import CTk, CTkLabel, CTkEntry, CTkFrame, CTkButton, CTkToplevel, CTkImage
+
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
+import subprocess, sys, os
+
+from PIL import Image
 
 from tkinter.ttk import Treeview
 from tkinter.constants import END
@@ -7,11 +16,16 @@ from city.citycrud import CityCrud
 from city.citytreeview import fetch, populate_treeview
 
 
-class CityApp(CTk):
+class CityApp(CTkToplevel):
     def __init__(self):
         super().__init__()
         self.title("CRUD    |     Cidades")
         self.geometry("800x446")
+
+        # load images with light and dark mode image
+        image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
+        self.pdf_icon = CTkImage(light_image=Image.open(os.path.join(image_path, "pdf_icon.png")),
+                                  dark_image=Image.open(os.path.join(image_path, "pdf_icon.png")), size=(50, 50))
 
         # title
         self.title_entry = CTkLabel(self, text="")
@@ -50,6 +64,11 @@ class CityApp(CTk):
         self.update_button.place(relx=0.3, rely=0.24)
         self.insert_button.place(relx=0.6, rely=0.24)
 
+        # pdf button (top right)
+        self.pdf_button = CTkButton(self, width=0, height=0, fg_color="transparent", image=self.pdf_icon, text="", command=self.pdf)
+        self.pdf_button.place(relx=0.96, rely=0.02, anchor="n")
+
+
         # treeview
         self.treeview = Treeview(self, columns=("id", "city", "state", "country"), show="headings")
 
@@ -57,6 +76,8 @@ class CityApp(CTk):
         self.treeview.heading("city", text="CIDADE")
         self.treeview.heading("state", text="ESTADO")
         self.treeview.heading("country", text="PAÍS")
+
+
 
         fetch()
         populate_treeview(self.treeview)
@@ -124,6 +145,53 @@ class CityApp(CTk):
 
             self.country_entry.delete(0, END)
             self.country_entry.insert(0, values[3])
+
+    def pdf(self):
+        c = canvas.Canvas("../../exports/export_cidade.pdf", pagesize=letter)
+        file_path = "../../exports/export_cidade.pdf"
+
+        width, height = letter
+        c.setFont("Helvetica", 10)
+
+        x = 100
+        y = height - 50
+
+        c.drawString(x, y, "ID")
+        c.drawString(x + 50, y, "CIDADE")
+        c.drawString(x + 150, y, "ESTADO")
+        c.drawString(x + 230, y, "PAÍS")
+      
+
+        y -= 20
+
+        for row in fetch():
+            c.drawString(x, y, str(row[0]))
+            c.drawString(x + 50, y, str(row[1]))
+            c.drawString(x + 150, y, str(row[2]))
+            c.drawString(x + 230, y, str(row[3]))
+          
+            y -= 15
+
+            if y < 50:
+                c.showPage()
+                c.setFont("Helvetica", 10)
+                y = height - 50
+                c.drawString(x, y, "ID")
+                c.drawString(x + 50, y, "CIDADE")
+                c.drawString(x + 150, y, "ESTADO")
+                c.drawString(x + 230, y, "PAÍS")
+
+                y -= 20
+
+        c.save()
+
+
+        if platform.system() == "Windows":
+            os.startfile(file_path)
+        else:
+            opener = "open" if sys.platform == "darwin" else "xdg-open"     # linux
+            subprocess.call([opener, file_path])
+
 
 
 

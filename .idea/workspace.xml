@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="finished menu">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mycrud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mycrud.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/city/cityapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/city/cityapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/clientapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/clientapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login/loginapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/loginapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/menuapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuapp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/userapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/userapp.py" afterDir="false" />
-    </list>
+    <list default="true" id="f6c76e40-b021-467e-bdcc-b958976751f9" name="Changes" comment="finished menu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,9 +60,9 @@
     "Python.usertreeview.executor": "Run",
     "RunOnceActivity.OpenDatabaseViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/crud",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "last_opened_file_path": "/run/media/gus/usb/crud",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "vcs.Git"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -82,6 +73,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/menu" />
       <recent name="$PROJECT_DIR$/src/user" />
     </key>
   </component>

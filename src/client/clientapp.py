@@ -1,4 +1,14 @@
-from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu, CTkComboBox, CTkButton, CTkToplevel
+import platform
+
+from customtkinter import CTk, CTkLabel, CTkFrame, CTkEntry, CTkOptionMenu, CTkComboBox, CTkButton, CTkToplevel, \
+    CTkImage
+
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
+import subprocess, sys, os
+
+from PIL import Image
 
 from tkinter.ttk import Treeview
 from tkinter.constants import END
@@ -8,11 +18,16 @@ from client.clientcrud import ClientCrud
 from client.clientreeview import fetch, populate_treeview
 
 
-class ClientApp(CTk):
+class ClientApp(CTkToplevel):
     def __init__(self):
         super().__init__()
         self.geometry("1200x550")
         self.title("CRUD    |     Clientes")
+
+        # load images with light and dark mode image
+        image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
+        self.pdf_icon = CTkImage(light_image=Image.open(os.path.join(image_path, "pdf_icon.png")),
+                                 dark_image=Image.open(os.path.join(image_path, "pdf_icon.png")), size=(50, 50))
 
         # title
         self.title_entry = CTkLabel(self, text="")
@@ -64,6 +79,11 @@ class ClientApp(CTk):
         self.delete_button.place(relx=0, rely=0.25)
         self.update_button.place(relx=0.3, rely=0.25)
         self.insert_button.place(relx=0.6, rely=0.25)
+
+        # pdf button (top right)
+        self.pdf_button = CTkButton(self, width=0, height=0, fg_color="transparent", image=self.pdf_icon, text="",
+                                    command=self.pdf)
+        self.pdf_button.place(relx=0.96, rely=0.02, anchor="n")
 
         # treeview
         self.treeview = Treeview(self, columns=("id", "name", "cpf", "birthdate", "gender", "city"), show="headings")
@@ -156,3 +176,53 @@ class ClientApp(CTk):
             self.gender_menu.set(values[4])
 
             self.city_combobox.set(values[5])
+
+    def pdf(self):
+        c = canvas.Canvas("../../exports/export_cliente.pdf", pagesize=letter)
+        file_path = "../../exports/export_cliente.pdf"
+
+        width, height = letter
+        c.setFont("Helvetica", 10)
+
+        x = 100
+        y = height - 50
+
+        c.drawString(x, y, "ID")
+        c.drawString(x + 50, y, "NOME")
+        c.drawString(x + 150, y, "CPF")
+        c.drawString(x + 230, y, "DATA DE NASCIMENTO")
+        c.drawString(x + 350, y, "GÊNERO")
+        c.drawString(x + 450, y, "CIDADE")
+
+        y -= 20
+
+        for row in fetch():
+            c.drawString(x, y, str(row[0]))
+            c.drawString(x + 50, y, str(row[1]))
+            c.drawString(x + 150, y, str(row[2]))
+            c.drawString(x + 230, y, str(row[3]))
+            c.drawString(x + 350, y, str(row[4]))
+            c.drawString(x + 450, y, str(row[5]))
+
+            y -= 15
+
+            if y < 50:
+                c.showPage()
+                c.setFont("Helvetica", 10)
+                y = height - 50
+                c.drawString(x, y, "ID")
+                c.drawString(x + 50, y, "NOME")
+                c.drawString(x + 150, y, "CPF")
+                c.drawString(x + 230, y, "DATA DE NASCIMENTO")
+                c.drawString(x + 350, y, "GÊNERO")
+                c.drawString(x + 450, y, "CIDADE")
+
+                y -= 20
+
+        c.save()
+
+        if platform.system() == "Windows":
+            os.startfile(file_path)
+        else:
+            opener = "open" if sys.platform == "darwin" else "xdg-open"  # linux
+            subprocess.call([opener, file_path])
