@@ -8,14 +8,14 @@
 """
 
 from customtkinter import CTk, CTkImage, CTkFrame, CTkLabel, CTkFont, CTkEntry, CTkButton, CTkToplevel, CTkOptionMenu
-
 # from tkinter.ttk import Separator
-
 from os import path
 from PIL import Image
 
+
 # icons path
 icons_path = path.join(path.dirname(path.realpath(__file__)), "icons/")
+
 
 class Login(CTk):
     def __init__(self):
@@ -119,7 +119,59 @@ class Menu(CTk):
 
     # callback methods
 
-window = Menu()
+
+
+# loading pdf icon
+pdf_icon = CTkImage(light_image=Image.open(path.join(icons_path, "pdf_icon.png")), dark_image=Image.open(path.join(icons_path, "pdf_icon.png")), size=(60, 60))
+
+
+class User(CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("1200x520")
+        self.title("CRUD    |    Usuários")
+
+        # entries
+        self.entries_frame = CTkFrame(self, width=400, height=200)
+        self.entries_frame.place(relx=0.5, rely=0.05, anchor="n")
+
+        self.name_entry = CTkEntry(self.entries_frame, placeholder_text="Nome completo")
+        self.name_entry.place(relx=0.32, rely=0.06)
+
+        self.phone_entry = CTkEntry(self.entries_frame, placeholder_text="Nº Telefone" )
+        self.phone_entry.place(relx=0.32, rely=0.22)
+
+        self.email_entry = CTkEntry(self.entries_frame, placeholder_text="Email"       )
+        self.email_entry.place(relx=0.32, rely=0.38)
+
+        self.username_entry = CTkEntry(self.entries_frame, placeholder_text="Username" )
+        self.username_entry.place(relx=0.32, rely=0.54)
+
+        self.password_entry = CTkEntry(self.entries_frame, placeholder_text="Senha"    )
+        self.password_entry.place(relx=0.32, rely=0.7)
+
+        # crud buttons
+        self.crud_buttons_frame = CTkFrame(self, width=400, height=50)
+        self.crud_buttons_frame.place(relx=0.5, rely=0.44, anchor="n")
+
+        self.insert_button = CTkButton(self.crud_buttons_frame, text="", width=96, height=39) # command=self.)
+        self.insert_button.place(relx=0.13, rely=0.069)
+
+        self.update_button = CTkButton(self.crud_buttons_frame, text="", width=96, height=39) # command=self.)
+        self.update_button.place(relx=0.39, rely=0.069)
+
+        self.delete_button = CTkButton(self.crud_buttons_frame, text="", width=96, height=39) # command=self.)
+        self.delete_button.place(relx=0.65, rely=0.069)
+
+
+
+
+
+window = User()
 window.mainloop()
+       
+        
+    
+
 
 
