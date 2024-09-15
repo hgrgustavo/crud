@@ -1,9 +1,17 @@
 """
-        Login Missing Setup
+        Login Missing Features
 
-    ~ Auth button (login >>> Menu)
+    ~ Auth button (login >>> auth >>> Menu)
     ~ Forget password (login >>> entry new password form)
     ~ Create new account (login >>> New user form)
+
+    User Missing Features
+
+    ~ Choose between CPF our CNPJ
+
+    General Missing Features
+
+    ~ When press a button, a blue line cross the window on x axis, like Google Chrome
 
 """
 
@@ -11,7 +19,7 @@ from customtkinter import CTk, CTkImage, CTkFrame, CTkLabel, CTkFont, CTkEntry, 
 # from tkinter.ttk import Separator
 from os import path
 from PIL import Image
-from treeview import UserTreeview
+from treeview import UserTreeview, ClientTreeview, CityTreeview
 
 
 # icons path
@@ -95,7 +103,12 @@ class Menu(CTk):
         self.nav_frame.grid(row=0, column=0, sticky="nsew")
 
         self.nav_label = CTkLabel(self.nav_frame, text=" CRUD", image=self.logo_icon, compound="left", font=CTkFont(size=25, weight="bold"))
-        self.nav_label.grid(row=0, column=0, padx=20, pady=30)
+        self.nav_label.grid(row=0, column=0, padx=20, pady=20)
+
+        """
+        test inserting a separator between logo and cruds
+        
+        """
 
         self.user_button = CTkButton(self.nav_frame, corner_radius=0, height=40, border_spacing=10, text="Usuário", fg_color="transparent", text_color=("gray10", "gray70"), hover_color=("gray70", "gray30"), image=self.user_icon, anchor="w")
         # command=self.open_userwindow)
@@ -136,30 +149,33 @@ class User(CTk):
         self.entries_frame = CTkFrame(self, width=400, height=280, fg_color="transparent")
         self.entries_frame.place(relx=0.5, rely=0.00, anchor="n")
 
+        self.id_entry = CTkEntry(self.entries_frame, placeholder_text="Identificador")
+        self.id_entry.place(relx=0.32, rely=0.065)
+
         self.name_entry = CTkEntry(self.entries_frame, placeholder_text="Nome completo")
-        self.name_entry.place(relx=0.32, rely=0.06)
+        self.name_entry.place(relx=0.32, rely=0.187)
 
-        self.phone_entry = CTkEntry(self.entries_frame, placeholder_text="Nº Telefone" )
-        self.phone_entry.place(relx=0.32, rely=0.19)
+        self.phone_entry = CTkEntry(self.entries_frame, placeholder_text="Nº Telefone")
+        self.phone_entry.place(relx=0.32, rely=0.308)
 
-        self.email_entry = CTkEntry(self.entries_frame, placeholder_text="Email"       )
-        self.email_entry.place(relx=0.32, rely=0.32)
+        self.email_entry = CTkEntry(self.entries_frame, placeholder_text="Email")
+        self.email_entry.place(relx=0.32, rely=0.43)
 
-        self.username_entry = CTkEntry(self.entries_frame, placeholder_text="Username" )
-        self.username_entry.place(relx=0.32, rely=0.45)
+        self.username_entry = CTkEntry(self.entries_frame, placeholder_text="Username")
+        self.username_entry.place(relx=0.32, rely=0.55)
 
-        self.password_entry = CTkEntry(self.entries_frame, placeholder_text="Senha"    )
-        self.password_entry.place(relx=0.32, rely=0.58)
+        self.password_entry = CTkEntry(self.entries_frame, placeholder_text="Senha")
+        self.password_entry.place(relx=0.32, rely=0.67)
 
         # crud buttons
         self.insert_button = CTkButton(self.entries_frame, text="INSERT", width=96, height=39) # command=self.)
-        self.insert_button.place(relx=0.22, rely=0.75, anchor="n")
+        self.insert_button.place(relx=0.22, rely=0.85, anchor="n")
 
         self.update_button = CTkButton(self.entries_frame, text="UPDATE", width=96, height=39) # command=self.)
-        self.update_button.place(relx=0.48, rely=0.75, anchor="n")
+        self.update_button.place(relx=0.48, rely=0.85, anchor="n")
 
         self.delete_button = CTkButton(self.entries_frame, text="DELETE", width=96, height=39) # command=self.)
-        self.delete_button.place(relx=0.74, rely=0.75, anchor="n")
+        self.delete_button.place(relx=0.74, rely=0.85, anchor="n")
 
         # pdf button
         self.pdf_button = CTkButton(self, text="", image=pdf_icon, fg_color="transparent", width=0, height=0)
@@ -169,11 +185,98 @@ class User(CTk):
         self.user_treeview = UserTreeview()
 
 
+class Client(CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("1200x520")
+        self.title("CRUD    |    Cliente")
+
+        # entries
+        self.entries_frame = CTkFrame(self, width=400, height=280, fg_color="transparent")
+        self.entries_frame.place(relx=0.5, rely=0.00, anchor="n")
+
+        self.id_entry = CTkEntry(self.entries_frame, placeholder_text="Identificador")
+        self.id_entry.place(relx=0.32, rely=0.065)
+
+        self.name_entry = CTkEntry(self.entries_frame, placeholder_text="Nome completo")
+        self.name_entry.place(relx=0.32, rely=0.187)
+
+        self.cpf_entry = CTkEntry(self.entries_frame, placeholder_text="CPF" )
+        self.cpf_entry.place(relx=0.32, rely=0.308)
+
+        self.cnpj_entry = CTkEntry(self.entries_frame, placeholder_text="CNPJ" )
+        self.cnpj_entry.place(relx=0.32, rely=0.43)
+
+        """
+        O seu cliente é uma pessoa ou uma empress?
+        
+        [ ] - Pessoa        [X] - Empresa ou MEI
+        
+        >> Se for empresa, bloquear entry do CPF
+        >> else bloquear entry CNPJ
+        """
+
+        # crud buttons
+        self.insert_button = CTkButton(self.entries_frame, text="INSERT", width=96, height=39) # command=self.)
+        self.insert_button.place(relx=0.22, rely=0.6, anchor="n")
+
+        self.update_button = CTkButton(self.entries_frame, text="UPDATE", width=96, height=39) # command=self.)
+        self.update_button.place(relx=0.48, rely=0.6, anchor="n")
+
+        self.delete_button = CTkButton(self.entries_frame, text="DELETE", width=96, height=39) # command=self.)
+        self.delete_button.place(relx=0.74, rely=0.6, anchor="n")
+
+        # pdf button
+        self.pdf_button = CTkButton(self, text="", image=pdf_icon, fg_color="transparent", width=0, height=0)
+        self.pdf_button.place(relx=0.02, rely=0.07, anchor="w")
+
+        # treeview
+        self.user_treeview = ClientTreeview()
+
+class City(CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("1200x520")
+        self.title("CRUD    |    Cidade")
+
+        # entries
+        self.entries_frame = CTkFrame(self, width=400, height=280, fg_color="transparent")
+        self.entries_frame.place(relx=0.5, rely=0.00, anchor="n")
+
+        self.id_entry = CTkEntry(self.entries_frame, placeholder_text="Identificador")
+        self.id_entry.place(relx=0.32, rely=0.065)
+
+        self.name_entry = CTkEntry(self.entries_frame, placeholder_text="Cidade")
+        self.name_entry.place(relx=0.32, rely=0.187)
+
+        self.cpf_entry = CTkEntry(self.entries_frame, placeholder_text="Estado" )
+        self.cpf_entry.place(relx=0.32, rely=0.308)
+
+        self.cnpj_entry = CTkEntry(self.entries_frame, placeholder_text="País" )
+        self.cnpj_entry.place(relx=0.32, rely=0.43)
+
+        # crud buttons
+        self.insert_button = CTkButton(self.entries_frame, text="INSERT", width=96, height=39) # command=self.)
+        self.insert_button.place(relx=0.22, rely=0.6, anchor="n")
+
+        self.update_button = CTkButton(self.entries_frame, text="UPDATE", width=96, height=39) # command=self.)
+        self.update_button.place(relx=0.48, rely=0.6, anchor="n")
+
+        self.delete_button = CTkButton(self.entries_frame, text="DELETE", width=96, height=39) # command=self.)
+        self.delete_button.place(relx=0.74, rely=0.6, anchor="n")
+
+        # pdf button
+        self.pdf_button = CTkButton(self, text="", image=pdf_icon, fg_color="transparent", width=0, height=0)
+        self.pdf_button.place(relx=0.02, rely=0.07, anchor="w")
+
+        # treeview
+        self.user_treeview = CityTreeview()
 
 
 
-window = User()
+window = Menu()
 window.mainloop()
+
 
 
        
